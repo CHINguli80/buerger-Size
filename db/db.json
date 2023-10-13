@@ -1,0 +1,170 @@
+{
+  "ingredientes": {
+    "paes": [
+      {
+        "id": 1,
+        "tipo": "Italiano Branco"
+      },
+      {
+        "id": 2,
+        "tipo": "3 Queijos"
+      },
+      {
+        "id": 3,
+        "tipo": "Parmesão e Orégano"
+      },
+      {
+        "id": 4,
+        "tipo": "Integral"
+      }
+    ],
+    "carnes": [
+      {
+        "id": 1,
+        "tipo": "Maminha"
+      },
+      {
+        "id": 2,
+        "tipo": "Alcatra"
+      },
+      {
+        "id": 3,
+        "tipo": "Picanha"
+      },
+      {
+        "id": 4,
+        "tipo": "Carne Vegana"
+      }
+    ],
+    "opcionais": [
+      {
+        "id": 1,
+        "tipo": "Bacon"
+      },
+      {
+        "id": 2,
+        "tipo": "Cheddar"
+      },
+      {
+        "id": 3,
+        "tipo": "Salame"
+      },
+      {
+        "id": 4,
+        "tipo": "Tomate"
+      },
+      {
+        "id": 5,
+        "tipo": "Cebola roxa"
+      },
+      {
+        "id": 6,
+        "tipo": "Pepino"
+      }
+    ],
+    "bebidas": [
+      {
+        "id": 1,
+        "tipo": "Coca Cola"
+      },
+      {
+        "id": 2,
+        "tipo": "Pepsi"
+      },
+      {
+        "id": 3,
+        "tipo": "Agua"
+      },
+      {
+        "id": 4,
+        "tipo": "Fanta"
+      }
+    ],
+    "acompanhantes": [
+      {
+        "id": 1,
+        "tipo": "Batatas Fritas"
+      },
+      {
+        "id": 2,
+        "tipo": "Doritos Bites"
+      },
+      {
+        "id": 3,
+        "tipo": "Nuggets Vegetais"
+      },
+      {
+        "id": 4,
+        "tipo": "Bucket assas de frangos"
+      }
+    ]
+  },
+  "status": [
+    {
+      "id": 1,
+      "tipo": "Solicitado"
+    },
+    {
+      "id": 2,
+      "tipo": "Em produção"
+    },
+    {
+      "id": 3,
+      "tipo": "Finalizado"
+    }
+  ],
+  "burgers": [
+    {
+      "nome": "Jenirel Lisboa",
+      "pao": "3 Queijos",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Salame"
+      ],
+      "bebida": "Pepsi",
+      "acompanhante": "Doritos Bites",
+      "status": "Finalizado",
+      "id": 2
+    },
+    {
+      "nome": "Wilmy Mubagi",
+      "pao": "Integral",
+      "carne": "Picanha",
+      "opcionais": [
+        "Cebola roxa",
+        "Pepino"
+      ],
+      "bebida": "Agua",
+      "acompanhante": "Nuggets Vegetais",
+      "status": "Em produção",
+      "id": 3
+    },
+    {
+      "nome": "Ramiro Muxilli",
+      "pao": "Italiano Branco",
+      "carne": "Alcatra",
+      "opcionais": [
+        "Bacon",
+        "Salame"
+      ],
+      "bebida": "Coca Cola",
+      "acompanhante": "Bucket assas de frangos",
+      "status": "Solicitado",
+      "id": 4
+    },
+    {
+      "nome": "Morais Domingos",
+      "pao": "Italiano Branco",
+      "carne": "Maminha",
+      "opcionais": [
+        "Bacon",
+        "Pepino"
+      ],
+      "bebida": "Pepsi",
+      "acompanhante": "Doritos Bites",
+      "status": "Em produção",
+      "id": 5
+    }
+  ]
+}
