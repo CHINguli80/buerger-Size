@@ -11,7 +11,7 @@
                     <label for="pao">Escolha o pão do seu buerger:</label>
                     <select name="pao" id="pao" v-model="pao">
                         <option value="">Seleciona o tipo pão</option>
-                        <option v-for="pao in paes" :key="pao.id" :value="pao.tipo">{{ pao.tipo }}</option>
+                        <option v-for="pao in paes" :key="pao._id" :value="pao.tipo">{{ pao.tipo }}</option>
                     </select>
                 </div>
                  <div class="input-container">
@@ -53,6 +53,7 @@
 
 <script>
 import Message from './Message.vue'
+import api from '../db/api'
 
 export default {
     name: "SizeForm",
@@ -78,40 +79,73 @@ export default {
 
         async getIngredientes() {
 
-            const req = await fetch("http://localhost:3000/ingredientes");
-            const data = await req.json();
+            await api
+             .get("/paes")
+                .then((res) => {
+                    this.paes = res.data;
+                })
+                .catch((error) => {
+                        console.log(error);
+                });
 
-            this.paes = data.paes;
-            this.carnes = data.carnes;
-            this.opcionaisData = data.opcionais;
-            this.bebidas = data.bebidas;
-            this.acompanhantes = data.acompanhantes
-       
+            await api
+             .get("/carnes")
+                .then((res) => {
+                    this.carnes = res.data;
+                })
+                .catch((error) => {
+                        console.log(error);
+                });
+
+            await api
+             .get("/opcionais")
+                .then((res) => {
+                    this.opcionaisData = res.data;
+                })
+                .catch((error) => {
+                        console.log(error);
+                });
+
+            await api
+             .get("/bebidas")
+                .then((res) => {
+                    this.bebidas = res.data;
+                })
+                .catch((error) => {
+                        console.log(error);
+                });
+
+            await api
+             .get("/acompanhante")
+                .then((res) => {
+                    this.acompanhantes = res.data
+                })
+                .catch((error) => {
+                        console.log(error);
+                });
+
+                   
         },
         async createBuerger(e) {
             e.preventDefault()
-            
-            const data = {
-                nome: this.nome,
-                pao: this.pao,
-                carne: this.carne,
-                opcionais: Array.from(this.opcionais),
-                bebida: this.bebida,
-                acompanhante: this.acompanhante,
-                status: "Solicitado"
-            }
-
-            const dataJson = JSON.stringify(data)
-            const req = await fetch(" http://localhost:3000/burgers", {
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: dataJson
-            }) 
-
-            const res = await req.json()
-
-            this.msg = `Pedido Nª ${res.id} realizado com sucesso!`;
-            setTimeout(() => this.msg = "", 3000)
+           
+            await api
+                .post("/buergers", 
+                {
+                        nome: this.nome,
+                        pao: this.pao,
+                        carne: this.carne,
+                        opcionais: Array.from(this.opcionais),
+                        bebida: this.bebida,
+                        acompanhante: this.acompanhante,
+                        status: "Solicitado"
+                }).then((res) => {
+                    const id = res.data.response._id.substr(21, 22)
+                    this.msg = `Pedido Nª ${id} realizado com sucesso!`;
+                    setTimeout(() => this.msg = "", 3000)
+                }).catch((error) => {
+                    console.log(error)
+                })
             
             this.nome = "",
             this.pao = "",
@@ -121,7 +155,7 @@ export default {
             this.acompanhante = ""
 
             window.scroll({
-                top: 2,
+                top: 4,
                 behavior: 'auto'
             })
 
